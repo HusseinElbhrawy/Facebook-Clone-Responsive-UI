@@ -62,55 +62,66 @@ class PostContainer extends StatelessWidget {
                   ],
                 ),
                 const Divider(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    TextButton.icon(
-                      onPressed: () => print('Like'),
-                      icon: Icon(
-                        MdiIcons.thumbUpOutline,
-                        color: Colors.grey.shade600,
-                      ),
-                      label: Text(
-                        'Like',
-                        style: TextStyle(color: Colors.grey.shade600),
-                      ),
-                    ),
-                    const VerticalDivider(width: 8),
-                    TextButton.icon(
-                      onPressed: () => print('Comments'),
-                      icon: Icon(
-                        MdiIcons.commentOutline,
-                        color: Colors.grey.shade600,
-                      ),
-                      label: Text(
-                        'Comment',
-                        style: TextStyle(
-                          color: Colors.grey.shade600,
-                        ),
-                      ),
-                    ),
-                    const VerticalDivider(width: 8),
-                    TextButton.icon(
-                      onPressed: () => print('Share'),
-                      icon: Icon(
-                        MdiIcons.shareOutline,
-                        color: Colors.grey.shade600,
-                      ),
-                      label: Text(
-                        'Share',
-                        style: TextStyle(
-                          color: Colors.grey.shade600,
-                        ),
-                      ),
-                    ),
-                  ],
-                )
+                const _PostStatus()
               ],
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _PostStatus extends StatelessWidget {
+  const _PostStatus({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        TextButton.icon(
+          onPressed: () => print('Like'),
+          icon: Icon(
+            MdiIcons.thumbUpOutline,
+            color: Colors.grey.shade600,
+          ),
+          label: Text(
+            'Like',
+            style: TextStyle(color: Colors.grey.shade600),
+          ),
+        ),
+        const VerticalDivider(width: 8),
+        TextButton.icon(
+          onPressed: () => print('Comments'),
+          icon: Icon(
+            MdiIcons.commentOutline,
+            color: Colors.grey.shade600,
+          ),
+          label: Text(
+            'Comment',
+            style: TextStyle(
+              color: Colors.grey.shade600,
+            ),
+          ),
+        ),
+        const VerticalDivider(width: 8),
+        TextButton.icon(
+          onPressed: () => print('Share'),
+          icon: Icon(
+            MdiIcons.shareOutline,
+            color: Colors.grey.shade600,
+          ),
+          label: Text(
+            'Share',
+            style: TextStyle(
+              color: Colors.grey.shade600,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

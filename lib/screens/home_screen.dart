@@ -11,9 +11,11 @@ import '../widgets/room.dart';
 import '../widgets/stories.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
   static const testImage =
       'https://scontent.faly1-2.fna.fbcdn.net/v/t1.6435-1/87108822_2599119643709186_2235360216474451968_n.jpg?stp=dst-jpg_p240x240&_nc_cat=109&ccb=1-5&_nc_sid=7206a8&_nc_eui2=AeGccnH_2jJpKGscC1g3TmyVD8In7towNKcPwifu2jA0p7rEcyyBSdhq6T11XQX58Xz0zNZONxS__yoN76xoC62v&_nc_ohc=L5xBg-tsnU0AX8_IcTW&_nc_ht=scontent.faly1-2.fna&oh=00_AT8VlGVRunqAVoTnXRtEKSsNSTGyiSuFTe4GKorBMM3ONg&oe=6245A14F';
+
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
