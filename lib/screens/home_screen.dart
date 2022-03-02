@@ -1,6 +1,5 @@
 import 'package:facebook_clone_responsive_ui/config/palette.dart';
 import 'package:facebook_clone_responsive_ui/data/data.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -8,6 +7,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import '../widgets/circle_button.dart';
 import '../widgets/create_post_container.dart';
 import '../widgets/room.dart';
+import '../widgets/stories.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -46,12 +46,17 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           const SliverToBoxAdapter(
-            child: CreatePostContainer(currentUser: currentUser),
-          ),
+              child: CreatePostContainer(currentUser: currentUser)),
           SliverPadding(
             padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
             sliver: SliverToBoxAdapter(
               child: Room(onlineUser: onlineUsers),
+            ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+            sliver: SliverToBoxAdapter(
+              child: Stories(currentUser: currentUser, stories: stories),
             ),
           ),
         ],
