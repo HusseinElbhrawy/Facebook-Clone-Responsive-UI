@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+import '../config/palette.dart';
 import '../models/story_model.dart';
 import '../models/user_model.dart';
 
@@ -17,6 +18,7 @@ class StoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
+      clipBehavior: Clip.antiAliasWithSaveLayer,
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(12),
@@ -25,6 +27,14 @@ class StoryCard extends StatelessWidget {
             width: 110,
             fit: BoxFit.cover,
             height: double.infinity,
+          ),
+        ),
+        Container(
+          width: 110,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            gradient: Palette.storyGradient,
           ),
         ),
         PositionedDirectional(
@@ -41,9 +51,7 @@ class StoryCard extends StatelessWidget {
                   )
                 : Container(
                     clipBehavior: Clip.antiAliasWithSaveLayer,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
+                    decoration: const BoxDecoration(shape: BoxShape.circle),
                     child: CachedNetworkImage(
                       imageUrl: story!.user.imageUrl,
                       fit: BoxFit.cover,

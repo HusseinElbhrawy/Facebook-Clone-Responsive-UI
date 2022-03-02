@@ -37,15 +37,19 @@ class HomeScreen extends StatelessWidget {
                   ),
             ),
             actions: [
-              CircleButton(
-                icon: Icons.search,
-                onTap: () => print('Search Icon'),
-                iconSize: 30,
+              Center(
+                child: CircleButton(
+                  icon: Icons.search,
+                  onTap: () => print('Search Icon'),
+                  iconSize: 30,
+                ),
               ),
-              CircleButton(
-                icon: MdiIcons.facebookMessenger,
-                onTap: () => print('Message Icon'),
-                iconSize: 30,
+              Center(
+                child: CircleButton(
+                  icon: MdiIcons.facebookMessenger,
+                  onTap: () => print('Message Icon'),
+                  iconSize: 30,
+                ),
               ),
             ],
           ),
