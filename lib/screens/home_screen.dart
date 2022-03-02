@@ -6,6 +6,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import '../widgets/circle_button.dart';
 import '../widgets/create_post_container.dart';
+import '../widgets/post_container.dart';
 import '../widgets/room.dart';
 import '../widgets/stories.dart';
 
@@ -17,9 +18,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
-            backgroundColor: Palette.scaffold,
+            backgroundColor: Colors.white,
             floating: true,
             centerTitle: false,
             elevation: 0.0,
@@ -57,6 +59,17 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
             sliver: SliverToBoxAdapter(
               child: Stories(currentUser: currentUser, stories: stories),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return PostContainer(
+                  posts: posts,
+                  index: index,
+                );
+              },
+              childCount: posts.length,
             ),
           ),
         ],
