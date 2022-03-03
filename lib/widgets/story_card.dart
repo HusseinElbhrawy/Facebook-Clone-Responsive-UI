@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:facebook_clone_responsive_ui/widgets/responsive_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../config/palette.dart';
@@ -35,6 +36,15 @@ class StoryCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             gradient: Palette.storyGradient,
+            boxShadow: ResponsiveWidget.isDesktop(context)
+                ? [
+                    const BoxShadow(
+                      color: Colors.black12,
+                      offset: Offset(0, 2),
+                      blurRadius: 4.0,
+                    ),
+                  ]
+                : null,
           ),
         ),
         PositionedDirectional(

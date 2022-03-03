@@ -1,4 +1,5 @@
 import 'package:facebook_clone_responsive_ui/models/models.dart';
+import 'package:facebook_clone_responsive_ui/widgets/responsive_widget.dart';
 import 'package:facebook_clone_responsive_ui/widgets/story_card.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,9 @@ class Stories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: ResponsiveWidget.isDesktop(context)
+          ? Colors.transparent
+          : Colors.white,
       height: 200,
       child: ListView.builder(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
