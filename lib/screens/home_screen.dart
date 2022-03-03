@@ -1,5 +1,6 @@
 import 'package:facebook_clone_responsive_ui/config/palette.dart';
 import 'package:facebook_clone_responsive_ui/data/data.dart';
+import 'package:facebook_clone_responsive_ui/widgets/responsive_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -22,37 +23,39 @@ class HomeScreen extends StatelessWidget {
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
-          SliverAppBar(
-            backgroundColor: Colors.white,
-            floating: true,
-            centerTitle: false,
-            elevation: 0.0,
-            systemOverlayStyle: SystemUiOverlayStyle.light,
-            title: Text(
-              'Facebook',
-              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    color: Palette.facebookBlue,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: -1.2,
+          ResponsiveWidget.isDesktop(context)
+              ? const SliverToBoxAdapter()
+              : SliverAppBar(
+                  backgroundColor: Colors.white,
+                  floating: true,
+                  centerTitle: false,
+                  elevation: 0.0,
+                  systemOverlayStyle: SystemUiOverlayStyle.light,
+                  title: Text(
+                    'Facebook',
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                          color: Palette.facebookBlue,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: -1.2,
+                        ),
                   ),
-            ),
-            actions: [
-              Center(
-                child: CircleButton(
-                  icon: Icons.search,
-                  onTap: () => print('Search Icon'),
-                  iconSize: 30,
+                  actions: [
+                    Center(
+                      child: CircleButton(
+                        icon: Icons.search,
+                        onTap: () => print('Search Icon'),
+                        iconSize: 30,
+                      ),
+                    ),
+                    Center(
+                      child: CircleButton(
+                        icon: MdiIcons.facebookMessenger,
+                        onTap: () => print('Message Icon'),
+                        iconSize: 30,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              Center(
-                child: CircleButton(
-                  icon: MdiIcons.facebookMessenger,
-                  onTap: () => print('Message Icon'),
-                  iconSize: 30,
-                ),
-              ),
-            ],
-          ),
           const SliverToBoxAdapter(
               child: CreatePostContainer(currentUser: currentUser)),
           SliverPadding(

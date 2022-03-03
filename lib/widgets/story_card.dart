@@ -66,7 +66,7 @@ class StoryCard extends StatelessWidget {
           start: 8,
           end: 8,
           child: Text(
-            isAddStory ? 'Add to Story' : currentUser.name,
+            isAddStory ? 'Add to Story' : story!.user.name,
             maxLines: 2,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
